@@ -1,4 +1,16 @@
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  margin: 20px;
 }
