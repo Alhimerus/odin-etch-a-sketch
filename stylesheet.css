@@ -14,3 +14,15 @@ body {
 h2 {
   margin: 20px;
 }
+
+.square {
+  margin: 0;
+  padding: 8px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
