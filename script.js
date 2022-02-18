@@ -23,13 +23,10 @@ function createGrid() {
   for (let i = 0; i < squareList.length; i++) {
     let color = randomRGB();
     squareList[i].addEventListener("pointerover", () => {
-      if (squareList[i].style.backgroundColor == "") {
-        squareList[i].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-      }
-      else {
+      if (squareList[i].style.backgroundColor != "") {
         color = darkenColor(color);
-        squareList[i].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
       }
+      squareList[i].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
     })
   }
 }
