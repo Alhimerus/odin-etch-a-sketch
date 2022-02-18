@@ -42,3 +42,9 @@ h2 {
   border-image: linear-gradient(135deg, red, orange, yellow, green, blue, purple);
   border-image-slice: 1;
 }
+
+button {
+  margin: 20px;
+  padding: 4px 8px;
+  font-size: 16px;
+}
