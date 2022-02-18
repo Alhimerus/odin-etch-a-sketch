@@ -3,6 +3,17 @@ row.classList.add("row");
 const container = document.getElementById("container");
 const square = document.createElement("div");
 square.classList.add("square");
+const button = document.getElementById("clear");
+button.addEventListener("click", clearGrid);
+
+function clearGrid() {
+  const rowList = document.getElementsByClassName("row");
+  length = rowList.length;
+  for (let i = 0; i < length; i++) {
+    container.removeChild(rowList[0]);
+  }
+  createGrid();
+}
 
 function createGrid() {
   let length = parseFloat(prompt("How many squares per side would you like? (MAX 100)", 16));
