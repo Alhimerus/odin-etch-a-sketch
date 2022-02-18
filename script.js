@@ -5,7 +5,7 @@ const square = document.createElement("div");
 square.classList.add("square");
 
 function createGrid() {
-  let length = parseFloat(prompt("How many squares per side would you like? (MAX 100)"));
+  let length = parseFloat(prompt("How many squares per side would you like? (MAX 100)", 16));
   if (length < 0 || length > 100) {
     alert("Wrong number!");
     return createGrid();
@@ -23,16 +23,30 @@ function createGrid() {
   for (let i = 0; i < squareList.length; i++) {
     let color = randomRGB();
     squareList[i].addEventListener("pointerover", () => {
-      squareList[i].style.backgroundColor = color;
+      if (squareList[i].style.backgroundColor == "") {
+        squareList[i].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+      }
+      else {
+        color = darkenColor(color);
+        squareList[i].style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+      }
     })
   }
 }
 
 function randomRGB() {
-  let randR = Math.random() * 255;
-  let randG = Math.random() * 255;
-  let randB = Math.random() * 255;
-  return `rgb(${randR}, ${randG}, ${randB})`;
+  let randR = Math.floor(Math.random() * 255);
+  let randG = Math.floor(Math.random() * 255);
+  let randB = Math.floor(Math.random() * 255);
+  return [randR, randG, randB];
+}
+
+function darkenColor(colorArray) {
+  for (let i = 0; i <= 2; i++) {
+    colorArray[i] -= 25;
+    if (colorArray[i] < 0) { colorArray[i] = 0; }
+  }
+  return colorArray;
 }
 
 createGrid();
